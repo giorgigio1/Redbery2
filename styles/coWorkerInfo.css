@@ -1,7 +1,13 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(/fonts/HelveticaNeue.ttc);
+ }
+
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
+    font-family: myFirstFont;
 }
 
 body {
@@ -32,6 +38,7 @@ a {
     text-decoration: none;
     color: black;
     margin: 15px;
+    font-size: 18px;
 }
 
 .first {
@@ -53,7 +60,6 @@ a {
 .main {
     max-width: 1000px;
     width: 100%;
-    /* border: 2px solid blue; */
     margin: 0 auto;
 }
 
@@ -63,17 +69,18 @@ a {
 }
 
 .child input {
-    width: 350px;
-    height: 20px;
+    width: 360px;
     border: 1px solid #8AC0E2;
     border-radius: 4px;
     padding: 10px;
     margin: 5px 0;
+    font-size: 13px;
 }
 
 span {
     font-size: 13px;
     font-weight: 100;
+    color: rgb(140, 140, 140);
 }
 
 .main {
@@ -108,11 +115,11 @@ select {
 
 .grandChild input {
     width: 100%-10px;
-    height: 20px;
     border: 1px solid #8AC0E2;
     border-radius: 4px;
     padding: 10px;
     margin: 5px 0;
+    font-size: 13px;
 }
 
 button {
@@ -131,5 +138,6 @@ button {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    margin-top: 30px;
+    margin-top: 55px;
 }
+
