@@ -21,7 +21,7 @@ header {
     height: 10%;
 }
 
-.vector {
+.backPage {
     position: absolute;
     top: 30px;
     left: 50px;
@@ -66,13 +66,13 @@ a {
 .child {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .child input {
-    width: 360px;
     border: 1px solid #8AC0E2;
     border-radius: 4px;
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     margin: 5px 0;
     font-size: 13px;
 }
@@ -95,7 +95,7 @@ form {
 
 .parent {
     display: flex;
-    justify-content: space-between;
+    gap: 50px;
 }
 
 select {
@@ -141,3 +141,92 @@ button {
     margin-top: 55px;
 }
 
+button {
+    cursor: pointer;
+}
+
+.backArrow {
+    display: none;
+}
+
+p {
+    display: none;
+}
+
+@media screen and (max-width: 754px) {
+    span {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .vector {
+        left: 10px;
+    }
+    a {
+        font-size: 14px;
+    }
+    form {
+        padding: 40px 30px;
+    }
+    span {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    a:nth-child(2) {
+        display: none;
+    }
+    .backPage {
+        display: none;
+    }
+    .backArrow {
+        display: block;
+    }
+    p {
+        display: block;
+        text-align: center;
+    }
+    header {
+        height: 60px;
+        background-color: #f6f6f6;
+        display: flex;
+        align-items: center;
+    }
+    .backArrow {
+        position: absolute;
+        left: 30px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    a {
+        margin: 0;
+        font-size: 16px;
+    }
+    .navigation {
+        margin: 0;
+    }
+    .first:after {
+        display: none;
+    }
+    .parent {
+        flex-direction: column;
+        gap: 0px;
+    }
+    form {
+        padding: 0px 30px 50px 30px;
+    }
+    .child {
+        margin-top: 15px;
+    }   
+    button {
+        margin-top: 20px;
+    }
+    .redLogo {
+        display: none;
+    }
+    body {
+        background-color: #fff;
+    }
+}
