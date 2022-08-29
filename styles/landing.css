@@ -5,7 +5,6 @@
 }
 
 body {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,11 +16,11 @@ figure {
     align-items: center;
 }
 
-#logo {
+.logo {
     margin: 60px 0 60px 0;
 }
 
-#pic {
+.pic {
     height: 330px;
     margin-bottom: 60px;
 }
@@ -37,20 +36,34 @@ button {
     cursor: pointer;
 }
 
-#mobPic {
+.mobPic {
     display: none;
 }
 
 @media screen and (max-width: 600px) {
-
-    #pic {
+    .pic {
         display: none;
     }
 
-    #mobPic {
+    .mobPic {
         display: block;
         height: 330px;
         margin-bottom: 60px;
     }
+}
 
+@media screen and (max-width: 530px) {
+    body {
+        padding: 0 30px 0 30px;
+
+    }
+    .mobPic {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
+    button:nth-child(2) {
+        margin-top: 40px;
+    }
 }
