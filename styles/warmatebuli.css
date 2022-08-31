@@ -1,0 +1,86 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(/fonts/HelveticaNeue.ttc);
+ }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: myFirstFont;
+}
+
+body {
+    background: #4A4A4A;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: 420px;
+    background-color: #ffffff;
+    margin: 150px auto;
+    border-radius: 8px;
+}
+
+img {
+    min-width: 190px;
+    width: 190px;
+}
+
+h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+button {
+    padding: 11px 50px 11px 50px;
+    background-color: #62A1EB;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    margin: 60px 0 20px 0;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #0089A7;
+    font-size: 16px;
+}
+
+br {
+    display: none;
+}
+
+@media screen and (max-width: 520px) {
+    body {
+        background-color: #ffffff;
+    }
+    .main {
+        width: 100%;
+        height: auto;
+    }
+    br {
+        display: block;
+    }
+    h4 {
+        text-align: center;
+        font-size: 17px;
+        /* margin: 0px 0 90px 0; */
+    }
+    button {
+      width: 85%; 
+      font-size: 14px;
+      margin: 150px 0 25px 0;
+    }
+    a {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
