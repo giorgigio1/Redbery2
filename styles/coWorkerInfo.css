@@ -187,6 +187,9 @@ p {
     p {
         display: block;
         text-align: center;
+        font-weight: 100;
+        font-size: 13px;
+        color: rgb(140, 140, 140);
     }
     header {
         height: 60px;

@@ -1,0 +1,297 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(/fonts/HelveticaNeue.ttc);
+ }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: myFirstFont;
+}
+
+body {
+    background-color: #f6f6f6;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80px;
+    background-color: #f6f6f6;
+}
+
+.backPage {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    margin: 50px 30px 20px 30px;
+}
+
+.characters::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 1.5px;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #000000;
+}
+
+.main {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 18px;
+}
+
+.mainForm {
+    padding: 50px 130px 30px 130px;
+}
+
+.attach {
+    width: 100%;
+    padding: 80px 0;
+    border: 2px dashed #4386A9;
+    border-radius: 18px;
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.atvirte {
+    padding: 10px 50px;
+    background-color: #62A1EB;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.label1 {
+    color: #4386A9;
+    cursor: pointer;
+    text-align: center;
+}
+
+.parent {
+    display: flex;
+    margin-top: 30px;
+    gap: 50px;
+}
+
+.child {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+select {
+    flex: 1;
+    border-radius: 8px;
+    border: none;
+    height: 35px;
+    padding-left: 10px;
+    background-color: #EBEBEB;
+    margin-top: 20px;
+}
+
+.child label {
+    font-size: 14px;
+}
+
+.child input {
+    padding: 10px 0 10px 10px;
+    border: 1px solid #62A1EB;
+    border-radius: 8px;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 5px 0;
+}
+
+.child span {
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: #EBEBEB;
+    margin: 30px 0;
+}
+
+.cpu {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 40px;
+}
+
+.memory {
+    display: flex;
+    margin: 30px 0;
+    gap: 50px;
+}
+
+.ram {
+    flex: 1;
+}
+
+.ram label {
+    font-size: 14px;
+}
+
+.radio1 {
+    margin-top : 13px;
+}
+
+.radio2 {
+    margin-left : 50px;
+}
+
+.vinchType {
+    margin-left: 15px;
+}
+
+.shedzena {
+    display: flex;
+    margin: 30px 0;
+    gap: 50px;
+}
+
+.pasi {
+    position: relative;
+}
+
+.lari {
+    position: absolute;
+    right: 13px;
+    top: 32px;
+    width: 13px;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.footer a {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.at {
+    padding: 10px 25px;
+}
+
+.lastFigure {
+    text-align: center;
+}
+
+.redLogo {
+    width: 60px;
+    margin: 40px 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+  }
+
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.navigation p {
+    display: none;
+}
+
+@media screen and (max-width: 580px) {
+    a:nth-child(2), hr, .backPage, .lastFigure {
+        display: none;
+    }
+    p {
+        display: block;
+        text-align: center;
+        font-weight: 100;
+        font-size: 13px;
+        color: rgb(140, 140, 140);
+    }
+    header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        background-color: #EBEBEB;
+    }
+    .backArrow {
+        position: absolute;
+        left: 30px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .a {
+        font-weight: 100;
+    }
+
+    .navigation p {
+        display: block;
+    }
+
+    .main {
+        border-radius: 14px;
+    }
+    .mainForm {
+        background-color: #EBEBEB;
+        border-radius: 14px;
+        padding: 0;
+    }
+    .parent {
+        background-color: #fff;
+        position: relative;
+        border-radius: 14px;
+    }
+    .mainContent {
+        border-radius: 14px;
+        padding: 30px 15px;
+        background: white;
+        margin-bottom: 10px;
+        
+    }
+    .child input {
+        padding: 20px 0 20px 10px;
+    }
+    select {
+        width: 100%;
+        min-height: 55px;
+    }
+    .cpu, .memory, .shedzena {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .cpu select {
+        margin-top: 0px;
+    }
+    .memory, .shedzena {
+        margin: 0;
+    }
+    .mdgomareoba {
+        margin-top: 20px;
+    }
+}
