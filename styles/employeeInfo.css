@@ -10,6 +10,10 @@
     font-family: myFirstFont;
 }
 
+.laptopInfo {
+    display: none;
+}
+
 body {
     background-color: #f6f6f6;
 }
@@ -34,18 +38,30 @@ header {
     margin-top: 40px;
 }
 
-a {
-    text-decoration: none;
+.navigation button {
     color: black;
     margin: 15px;
     font-size: 18px;
+    border: none;
+    position: relative;
+    background-color: transparent;
 }
 
-.first {
+.employeeInfoBtn {
     position: relative;
 }
 
-.first:after {
+
+
+.submitBtn {
+    border: none;
+}
+
+.submitBtn:disabled {
+    cursor: no-drop;
+}
+
+.navigation button.active:after {
     position: absolute;
     content: '';
     height: 1.5px;
@@ -122,7 +138,7 @@ select {
     font-size: 13px;
 }
 
-button {
+.laptopPageBtn {
     background-color: #62A1EB;
     color: white;
     border: none;
@@ -151,6 +167,10 @@ button {
 
 p {
     display: none;
+}
+
+.error {
+    border: solid 1px red !important
 }
 
 @media screen and (max-width: 754px) {

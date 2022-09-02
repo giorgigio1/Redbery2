@@ -10,10 +10,12 @@
     font-family: myFirstFont;
 }
 
-body {
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    height: 100vh;
 }
 
 figure {
@@ -27,19 +29,27 @@ figure {
 }
 
 .pic {
-    height: 330px;
+    height: 310px;
     margin-bottom: 60px;
 }
 
-button {
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons a {
     width: 300px;
     height: 40px;
+    line-height: 40px;
     margin-top: 20px;
     background-color: #62A1EB;
     color:white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
 }
 
 .mobPic {
@@ -54,22 +64,27 @@ button {
     .mobPic {
         display: block;
         height: 330px;
-        margin-bottom: 60px;
+        /* margin-bottom: 60px; */
     }
 }
 
 @media screen and (max-width: 530px) {
-    body {
-        padding: 0 30px 0 30px;
-
-    }
     .mobPic {
         width: 100%;
     }
-    button {
+    .buttons {
         width: 100%;
+        align-items: center;
+    } 
+        
+    .buttons a {
+        width: 90%;
+        margin: 0;
     }
-    button:nth-child(2) {
-        margin-top: 40px;
+    .buttons a:nth-child(1) {
+        margin-top: 0px;
+    }
+    .buttons a:nth-child(1) {
+        margin-bottom: 10px;
     }
 }
