@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: myFirstFont;
     src: url(/fonts/HelveticaNeue.ttc);
  }
@@ -8,7 +8,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: myFirstFont;
-}
+} */
 
 .backPage {
     position: absolute;
@@ -153,25 +153,18 @@ select {
 .footer {
     display: flex;
     justify-content: space-between;
-    margin-top: 60px;
+    align-items: center;
+    margin-top: 35px;
 }
 
 .footer a {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
+    color: #62A1EB;
 }
 
 .at {
     padding: 10px 25px;
-}
-
-.lastFigure {
-    text-align: center;
-}
-
-.redLogo {
-    width: 60px;
-    margin: 40px 0;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {

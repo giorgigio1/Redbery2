@@ -1,146 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/employeeInfo.css">
-    <link rel="stylesheet" href="./styles/laptopInfo.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/employeeInfo.css" />
+    <link rel="stylesheet" href="./styles/laptopInfo.css" />
     <title>თანამშრომლის ინფო</title>
     <script src="./scripts/employeeAssetForm.js" defer></script>
-    
-</head>
-<body>
+    <script src="./scripts/apiCalls.js" defer></script>
+  </head>
+  <body>
     <header>
-        <figure>
-            <img src="./images/Vector.png" alt="" class="backPage">
-            <img src="./images/backArrow.png" alt="" class="backArrow">
-        </figure>
-        <div class="navigation">
-            <button class="employeeInfoBtn active">თანამშრომლის ინფო</button>
-            <button class="laptopInfoBtn">ლეპტოპის მახასიათებლები</button>
-            <p>1/2</p>
-        </div>
+      <figure>
+        <img src="./images/Vector.png" alt="" class="backPage" />
+        <img src="./images/backArrow.png" alt="" class="backArrow" />
+      </figure>
+      <div class="navigation">
+        <button class="employeeInfoBtn active">თანამშრომლის ინფო</button>
+        <button class="laptopInfoBtn">ლეპტოპის მახასიათებლები</button>
+        <p>1/2</p>
+      </div>
     </header>
-    <div class="main">  
-        <form class="mainForm" >
-    <section class="workerInfo">
-                <div class="parent">
-                    <div class="child">
-                        <label for="">სახელი</label>
-                        <input pattern="[ა-ჰ]" onkeyup="onInputChange(this)"  type="text" placeholder="გრიშა">
-                        <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
-                    </div>
-                    <div class="child">
-                        <label for="">გვარი</label>
-                        <input pattern="[ა-ჰ]" onkeyup="onInputChange(this)" type="text" placeholder="ბაგრატიონი">
-                        <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
-                    </div>
-                </div>
-                <select name="" id="">
-                    <option value="">თიმი</option>
-                </select>
-                <select name="" id="">
-                    <option value="">პოზიცია</option>
-                </select>
-                <div class="grandChild">
-                    <label for="">მეილი</label>
-                    <input type="text" placeholder="grish777@redberry.ge">
-                    <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
-                </div>
-                <div class="grandChild">
-                    <label for="">ტელეფონის ნომერი</label>
-                    <input pattern="[0-9]" onkeyup="phoneNumberValidation(this)" type="text" placeholder="+995 598 00 07 01">
-                    <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
-                </div>
-                <button class="laptopPageBtn">შემდეგი</button>
-                
-            </section>
-            <section class="laptopInfo">
-                <div class="mainContent">
-                    <div class="attach">
-                        <input type="file" id="att" hidden>
-                        <label for="att" class="label1">ჩააგდე ან ატვირთე <br> ლეპტოპის ფოტო</label>
-                        <label for="att" class="atvirte">ატვირთე</label>
-                    </div>
-                    <div class="parent">
-                        <div class="child">
-                            <label for="">ლეპტოპის სახელი</label>
-                            <input name="laptopName" type="text" placeholder="HP">
-                            <span>ლათინური ასოები, ციფრები, !@#$%^&*()_+= </span>
-                        </div>
-                </div>
-                    <select name="" id="">
-                        <option value="">ლეპტოპის ბრენდი</option>
-                    </select>
-                </div>
-                <hr class="line"/>
-                <div class="mainContent">
-                    <div class="cpu">
-                        <select name="" id="">
-                            <option value="">CPU</option>
-                        </select>
-                        <div class="birtvi child">
-                            <label for="">CPU-ს ბირთვი</label>
-                            <input type="text" placeholder="14">
-                            <span>მხოლოდ ციფრები</span>
-                        </div>
-                        <div class="nakadi child">
-                            <label for="">CPU-ს ნაკადი</label>
-                            <input type="text" placeholder="365">
-                            <span>მხოლოდ ციფრები</span>
-                        </div>
-                    </div>
-                    <div class="memory">
-                        <div class="nakadi child">
-                            <label for="">ლეპტოპის RAM (GB)</label>
-                            <input type="text" placeholder="16">
-                            <span>მხოლოდ ციფრები</span>
-                        </div>
-                        <div class="ram">
-                            <label for="">მეხსიერების ტიპი</label>
-                            <br>
-                            <input type="radio" class="radio1">
-                            <label for="" class="vinchType">SSD</label>
-                            <input type="radio" class="radio2">
-                            <label for="" class="vinchType">HDD</label>
-                        </div>
-                    </div>
-                </div>
-                <hr class="line"/>
-                <div class="mainContent">
-                    <div class="shedzena">
-                        <div class="ricxvi child">
-                            <label for="">შეძენის რიცხვი (არჩევითი)</label>
-                            <input type="date" placeholder="დდ / თთ / წწწწ">
-                        </div>
-                        <div class="pasi child">
-                            <label for="">ლეპტოპის ფასი</label>
-                            <input name="price" type="number" placeholder="0000">
-                            <span for="">მხოლოდ ციფრები</span>
-                            <img src="./images/lari.png" alt="" class="lari">
-                        </div>
-                    </div>
-                    <div class="mdgomareoba ram">
-                        <label for="">ლეპტოპის მდგომარეობა</label>
-                        <br>
-                        <input type="radio" class="radio1">
-                        <label for="">ახალი</label>
-                        <input type="radio" class="radio2">
-                        <label for="">მეორადი</label>
-                    </div>
-                    <footer class="footer">
-                        <a href="">უკან</a>
-                        <button type="button" class="atvirte at submitBtn">დამახსოვრება</button>
-                    </footer>
-                </div>
-            </section>
-            
-        </form>
-        <figure class="lastFigure">
-            <img src="./images/redLogo.png" alt="" class="redLogo">
-        </figure>
+    <div class="main">
+      <form class="mainForm">
+        <section class="workerInfo">
+          <div class="parent">
+            <div class="child">
+              <label for="">სახელი</label>
+              <input
+                pattern="[ა-ჰ]"
+                onblur="handleOnBlur(this)"
+                onkeyup="onInputChange(this)"
+                type="text"
+                placeholder="გრიშა"
+              />
+              <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
+            </div>
+            <div class="child">
+              <label for="">გვარი</label>
+              <input
+                pattern="[ა-ჰ]"
+                onblur="handleOnBlur(this)"
+                onkeyup="onInputChange(this)"
+                type="text"
+                placeholder="ბაგრატიონი"
+              />
+              <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
+            </div>
+          </div>
+          <select name="" class="teamSection">
+            <option value="">თიმი</option>
+          </select>
+          <select name="" class="positions">
+            <option value="">პოზიცია</option>
+          </select>
+          <div class="grandChild">
+            <label for="">მეილი</label>
+            <input
+              onblur="emailValidation(this)"
+              type="text"
+              placeholder="grish777@redberry.ge"
+            />
+            <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
+          </div>
+          <div class="grandChild">
+            <label for="">ტელეფონის ნომერი</label>
+            <input
+              class="phoneNumber"
+              onblur="handleOnBlur(this)"
+              onkeyup="phoneNumberValidation(this)"
+              pattern="[0-9]"
+              type="text"
+              placeholder="+995 598 00 07 01"
+            />
+            <span class="gela">მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
+          </div>
+          <button class="laptopPageBtn">შემდეგი</button>
+        </section>
+        <section class="laptopInfo">
+          <div class="mainContent">
+            <div class="attach">
+              <input type="file" id="att" hidden />
+              <label for="att" class="label1"
+                >ჩააგდე ან ატვირთე <br />
+                ლეპტოპის ფოტო</label
+              >
+              <label for="att" class="atvirte">ატვირთე</label>
+            </div>
+            <div class="parent">
+              <div class="child">
+                <label for="">ლეპტოპის სახელი</label>
+                <input name="laptopName" type="text" placeholder="HP"  />
+                <span>ლათინური ასოები, ციფრები, !@#$%^&*()_+= </span>
+              </div>
+            </div>
+            <select name="" id="">
+              <option value="">ლეპტოპის ბრენდი</option>
+            </select>
+          </div>
+          <hr class="line" />
+          <div class="mainContent">
+            <div class="cpu">
+              <select name="" id="">
+                <option value="">CPU</option>
+              </select>
+              <div class="birtvi child">
+                <label for="">CPU-ს ბირთვი</label>
+                <input type="text" placeholder="14" />
+                <span>მხოლოდ ციფრები</span>
+              </div>
+              <div class="nakadi child">
+                <label for="">CPU-ს ნაკადი</label>
+                <input type="text" placeholder="365" />
+                <span>მხოლოდ ციფრები</span>
+              </div>
+            </div>
+            <div class="memory">
+              <div class="nakadi child">
+                <label for="">ლეპტოპის RAM (GB)</label>
+                <input type="text" placeholder="16" />
+                <span>მხოლოდ ციფრები</span>
+              </div>
+              <div class="ram">
+                <label for="">მეხსიერების ტიპი</label>
+                <br />
+                <input type="radio" class="radio1" />
+                <label for="" class="vinchType">SSD</label>
+                <input type="radio" class="radio2" />
+                <label for="" class="vinchType">HDD</label>
+              </div>
+            </div>
+          </div>
+          <hr class="line" />
+          <div class="mainContent">
+            <div class="shedzena">
+              <div class="ricxvi child">
+                <label for="">შეძენის რიცხვი (არჩევითი)</label>
+                <input type="date" placeholder="დდ / თთ / წწწწ" />
+              </div>
+              <div class="pasi child">
+                <label for="">ლეპტოპის ფასი</label>
+                <input name="price" type="number" placeholder="0000" />
+                <span for="">მხოლოდ ციფრები</span>
+                <img src="./images/lari.png" alt="" class="lari" />
+              </div>
+            </div>
+            <div class="mdgomareoba ram">
+              <label for="">ლეპტოპის მდგომარეობა</label>
+              <br />
+              <input type="radio" class="radio1" />
+              <label for="">ახალი</label>
+              <input type="radio" class="radio2" />
+              <label for="">მეორადი</label>
+            </div>
+            <footer class="footer">
+              <a href="">უკან</a>
+              <button type="button" class="atvirte at submitBtn">
+                დამახსოვრება
+              </button>
+            </footer>
+          </div>
+        </section>
+      </form>
+      <figure class="lastFigure">
+        <img src="./images/redLogo.png" alt="" class="redLogo" />
+      </figure>
     </div>
-    <script src="./scripts/inputValidations.js" ></script>
-</body>
+    <script src="./scripts/inputValidations.js"></script>
+  </body>
 </html>

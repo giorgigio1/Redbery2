@@ -77,6 +77,9 @@ header {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
+    background-color: white;
+    border-radius: 18px;
+    margin-top: 20px;
 }
 
 .child {
@@ -97,12 +100,6 @@ span {
     font-size: 13px;
     font-weight: 100;
     color: rgb(140, 140, 140);
-}
-
-.main {
-    background-color: white;
-    border-radius: 18px;
-    margin-top: 20px;
 }
 
 form {
@@ -148,13 +145,16 @@ select {
     float: right;
 }
 
+.lastFigure {
+    height: 100px;
+    text-align: center;
+    background: #f6f6f6;
+}
+
 .redLogo {
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    margin-top: 55px;
+    width: 60px;
+    height: 60px;
+    margin-top: 25px;
 }
 
 button {
@@ -170,7 +170,8 @@ p {
 }
 
 .error {
-    border: solid 1px red !important
+    border: none !important;
+    outline: solid 1px red !important;
 }
 
 @media screen and (max-width: 754px) {
