@@ -1,17 +1,23 @@
 'use strict'
-let isValidForm = 0;
+
+//import { link, TOKEN } from "./insidePage";
+
+const TOKEN = "74ea4b4838e06ef711d91d28f868619b";
+
+const link = 'https://pcfy.redberryinternship.ge';
+
+let isValidForm = false;
 
 const submitBtn = document.querySelector('.submitBtn')
 
-submitBtn.setAttribute('disabled',!isValidForm)
+// submitBtn.setAttribute('disabled',!isValidForm)
 
 function createError(element) {
-    isValidForm++;
+
     element.classList.add("error");
 }
 
 function removeError(element) {
-    isValidForm--;
     element.classList.remove("error");
 }
 
@@ -52,12 +58,11 @@ const onInputChange = (e) => {
 
 const phoneNumberValidation = (e) => {
     let value = e.value
-    if(value === '') return createError(e)
-    if(value.length === 3 && !value.match(/^(598|551|599|577|514|555)$/)) {
-        value = '';
-        createError(e)
-    } else if(value.match(/^(598|551|599|577|514|555)$/)) {
+    if(value.match(/^(\+?995)(79\d{7}|5\d{8})$/)) {
        removeError(e)
+    }
+    else{
+        createError(e)
     }
 }
 
@@ -68,11 +73,25 @@ const phoneNumberValidation = (e) => {
 submitBtn.addEventListener('click',() => {
     const form = document.querySelector('form')
     const formData = new FormData(form)
-    for (let key of formData) {
-        console.log(key,formData[key])
+    formData.append("token",TOKEN)
+    for (let data of formData) {
+      const [key,value] = data
+        if(value === '') {
+            isValidForm = true;
+            return;
+        };
+
     }
-    let inputs = document.querySelectorAll('input');
-    for (let k of inputs) {
-        console.log(k.name,k.value)
+    if(!isValidForm) {
+        fetch(link + '/api/laptop/create', {
+            method: 'POST',
+            body: formData
+        }).then(res => window.location.href='successful.html')
+        .catch(() => alert("errroror"))
     }
 }) 
+
+
+function selectValidation(element) {
+    element.value === element.firstElementChild.value ? element.className = 'error' : element.className = ''
+}

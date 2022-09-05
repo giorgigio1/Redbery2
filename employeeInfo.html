@@ -9,21 +9,22 @@
     <title>თანამშრომლის ინფო</title>
     <script src="./scripts/employeeAssetForm.js" defer></script>
     <script src="./scripts/apiCalls.js" defer></script>
+    <script src="./scripts/laptopInfo.js" defer></script>
   </head>
   <body>
     <header>
       <figure>
-        <img src="./images/Vector.png" alt="" class="backPage" />
-        <img src="./images/backArrow.png" alt="" class="backArrow" />
+        <img src="./images/Vector.png" alt="" class="backPage arrow" />
+        <img src="./images/backArrow.png" alt="" class="backArrow arrow" />
       </figure>
       <div class="navigation">
         <button class="employeeInfoBtn active">თანამშრომლის ინფო</button>
         <button class="laptopInfoBtn">ლეპტოპის მახასიათებლები</button>
-        <p>1/2</p>
+        <p id="tab">1/2</p>
       </div>
     </header>
     <div class="main">
-      <form class="mainForm">
+      <form class="mainForm" id="mainForm" enctype="multipart/form-data">
         <section class="workerInfo">
           <div class="parent">
             <div class="child">
@@ -34,6 +35,7 @@
                 onkeyup="onInputChange(this)"
                 type="text"
                 placeholder="გრიშა"
+                name="name"
               />
               <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
             </div>
@@ -45,15 +47,16 @@
                 onkeyup="onInputChange(this)"
                 type="text"
                 placeholder="ბაგრატიონი"
+                name="surname"
               />
               <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
             </div>
           </div>
-          <select name="" class="teamSection">
-            <option value="">თიმი</option>
+          <select id="teamSection" name="team_id" class="teamSection" onchange="selectValidation(this)">
+            <option class="timi">თიმი</option>
           </select>
-          <select name="" class="positions">
-            <option value="">პოზიცია</option>
+          <select class="positions" name="position_id" onchange="selectValidation(this)">
+            <option>პოზიცია</option>
           </select>
           <div class="grandChild">
             <label for="">მეილი</label>
@@ -61,8 +64,9 @@
               onblur="emailValidation(this)"
               type="text"
               placeholder="grish777@redberry.ge"
+              name="email"
             />
-            <span>მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
+            <span>უნდა მთავრდებოდეს @redberry.ge-ით</span>
           </div>
           <div class="grandChild">
             <label for="">ტელეფონის ნომერი</label>
@@ -73,62 +77,72 @@
               pattern="[0-9]"
               type="text"
               placeholder="+995 598 00 07 01"
+              name="phone_number"
             />
-            <span class="gela">მინიმუმ 2 სიმბოლო, ქართული ასოები</span>
+            <span class="gela">უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</span>
           </div>
-          <button class="laptopPageBtn">შემდეგი</button>
+          <button class="nextPage">შემდეგი</button>
         </section>
         <section class="laptopInfo">
           <div class="mainContent">
             <div class="attach">
-              <input type="file" id="att" hidden />
-              <label for="att" class="label1"
+              <input type="file" name="laptop_image" id="attach" onchange="attachFile(this)" hidden />
+              <label for="attach" class="label1"
                 >ჩააგდე ან ატვირთე <br />
                 ლეპტოპის ფოტო</label
               >
-              <label for="att" class="atvirte">ატვირთე</label>
+              <label for="attach" class="atvirte">ატვირთე</label>
+            </div>
+
+            <div class="picDetails">
+              <img class="test"></img>
+              <div class="details">
+                      <p id="pic"></p>
+                      <label for="attach">Tavidan atvirtva</label>
+              </div>
+       
             </div>
             <div class="parent">
               <div class="child">
                 <label for="">ლეპტოპის სახელი</label>
-                <input name="laptopName" type="text" placeholder="HP"  />
+                <input name="laptop_name" type="text" placeholder="HP" onkeyup="englishLettersCheck(this)" />
                 <span>ლათინური ასოები, ციფრები, !@#$%^&*()_+= </span>
               </div>
             </div>
-            <select name="" id="">
-              <option value="">ლეპტოპის ბრენდი</option>
+            <select name="laptop_brand_id" class="brandSection" onchange="selectValidation(this)">
+              <option value="" >ლეპტოპის ბრენდი</option>
             </select>
           </div>
           <hr class="line" />
           <div class="mainContent">
             <div class="cpu">
-              <select name="" id="">
+              <select name="laptop_cpu" class="cpuProducts" onchange="selectValidation(this)">
                 <option value="">CPU</option>
               </select>
               <div class="birtvi child">
                 <label for="">CPU-ს ბირთვი</label>
-                <input type="text" placeholder="14" />
+                <input type="text" name="laptop_cpu_cores" placeholder="14" onkeyup="onlyNumbers(this)" />
                 <span>მხოლოდ ციფრები</span>
               </div>
               <div class="nakadi child">
                 <label for="">CPU-ს ნაკადი</label>
-                <input type="text" placeholder="365" />
+                <input name="laptop_cpu_threads" type="text" placeholder="365" onkeyup="onlyNumbers(this)" />
                 <span>მხოლოდ ციფრები</span>
               </div>
             </div>
             <div class="memory">
               <div class="nakadi child">
                 <label for="">ლეპტოპის RAM (GB)</label>
-                <input type="text" placeholder="16" />
+                <input type="text" name="laptop_ram" placeholder="16" onkeyup="onlyNumbers(this)" />
                 <span>მხოლოდ ციფრები</span>
               </div>
               <div class="ram">
                 <label for="">მეხსიერების ტიპი</label>
                 <br />
-                <input type="radio" class="radio1" />
-                <label for="" class="vinchType">SSD</label>
-                <input type="radio" class="radio2" />
-                <label for="" class="vinchType">HDD</label>
+                <input type="radio" class="radio1" id="SSD" value="SSD" name="laptop_hard_drive_type"/>
+                <label for="SSD" class="vinchType">SSD</label>
+                <input type="radio" class="radio2" id="HDD" value="HDD" name="laptop_hard_drive_type"/>
+                <label for="HDD" class="vinchType">HDD</label>
               </div>
             </div>
           </div>
@@ -137,11 +151,11 @@
             <div class="shedzena">
               <div class="ricxvi child">
                 <label for="">შეძენის რიცხვი (არჩევითი)</label>
-                <input type="date" placeholder="დდ / თთ / წწწწ" />
+                <input type="date" name="laptop_purchase_date" placeholder="დდ / თთ / წწწწ" />
               </div>
               <div class="pasi child">
                 <label for="">ლეპტოპის ფასი</label>
-                <input name="price" type="number" placeholder="0000" />
+                <input name="laptop_price" type="number" placeholder="0000" />
                 <span for="">მხოლოდ ციფრები</span>
                 <img src="./images/lari.png" alt="" class="lari" />
               </div>
@@ -149,13 +163,13 @@
             <div class="mdgomareoba ram">
               <label for="">ლეპტოპის მდგომარეობა</label>
               <br />
-              <input type="radio" class="radio1" />
-              <label for="">ახალი</label>
-              <input type="radio" class="radio2" />
-              <label for="">მეორადი</label>
+              <input type="radio" class="radio1" value="new" id="axali" name="laptop_state" />
+              <label for="axali">ახალი</label>
+              <input type="radio" class="radio2" value="used" id="meoradi" name="laptop_state" />
+              <label for="meoradi">მეორადი</label>
             </div>
             <footer class="footer">
-              <a href="">უკან</a>
+              <a href="" class="back" >უკან</a>
               <button type="button" class="atvirte at submitBtn">
                 დამახსოვრება
               </button>

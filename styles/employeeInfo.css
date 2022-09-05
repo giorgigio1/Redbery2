@@ -51,8 +51,6 @@ header {
     position: relative;
 }
 
-
-
 .submitBtn {
     border: none;
 }
@@ -135,7 +133,7 @@ select {
     font-size: 13px;
 }
 
-.laptopPageBtn {
+.nextPage {
     background-color: #62A1EB;
     color: white;
     border: none;
@@ -165,13 +163,29 @@ button {
     display: none;
 }
 
-p {
+#tab {
     display: none;
 }
 
 .error {
     border: none !important;
     outline: solid 1px red !important;
+}
+
+.details{
+    display: none;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+.test{
+    display: none;
+    object-fit: cover;
+    object-position: center
+}
+
+.workerInfo {
+    padding: 10px;
+    background: white;
 }
 
 @media screen and (max-width: 754px) {
@@ -199,7 +213,20 @@ p {
     a:nth-child(2) {
         display: none;
     }
+    #tab{
+        display: block;
+    }
     .backPage {
+        display: none;
+    }
+    .navigation button{
+        display: none;
+        margin: 0;
+    }
+    .active{
+        display: block !important;
+    }
+    button.active::after{
         display: none;
     }
     .backArrow {
@@ -244,9 +271,6 @@ p {
     .child {
         margin-top: 15px;
     }   
-    button {
-        margin-top: 20px;
-    }
     .redLogo {
         display: none;
     }

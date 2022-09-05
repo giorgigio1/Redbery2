@@ -42,7 +42,7 @@ h4 {
     align-items: center;
 }
 
-button {
+.toList {
     padding: 11px 50px 11px 50px;
     background-color: #62A1EB;
     border-radius: 8px;

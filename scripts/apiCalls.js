@@ -10,7 +10,7 @@ function fetchTeamSection() {
             result.data.forEach(team => {
                     let option = document.createElement('option')
                     option.setAttribute('placeholder', team.name)
-                    option.setAttribute('value', team.team_id)
+                    option.setAttribute('value', team.id)
                     option.innerText = team.name
                     teamSection.appendChild(option)
             })
@@ -23,7 +23,7 @@ function fetchPositions() {
         result.data.forEach(position => {
                 let option = document.createElement('option')
                 option.setAttribute('placeholder', position.name)
-                option.setAttribute('value', position.team_id)
+                option.setAttribute('value', position.id)
                 option.innerText = position.name
                 positions.appendChild(option)
         })
